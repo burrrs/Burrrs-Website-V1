@@ -1,0 +1,125 @@
+/* Reset styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Video container */
+.video-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Video element */
+.video-background {
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-background.loaded {
+    opacity: 1;
+}
+
+/* Fallback image styles */
+.poster-image {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Social icons container */
+.social-icons {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    gap: 1.5rem;
+    z-index: 10;
+}
+
+/* Individual social icon links */
+.social-icons a {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+/* Fallback for browsers that don't support backdrop-filter */
+@supports not (backdrop-filter: blur(5px)) {
+    .social-icons a {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Hover effect for social icons */
+.social-icons a:hover {
+    transform: scale(1.1);
+}
+
+/* SVG icons */
+.social-icons svg {
+    width: 1.5rem;
+    height: 1.5rem;
+    fill: white;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .video-background {
+        display: none; /* Hide video on mobile */
+    }
+
+    .poster-image {
+        display: block; /* Show poster image on mobile */
+    }
+
+    .social-icons {
+        bottom: 1.5rem;
+        right: 1.5rem;
+    }
+
+    .social-icons a {
+        width: 2rem;
+        height: 2rem;
+    }
+
+    .social-icons svg {
+        width: 1.2rem;
+        height: 1.2rem;
+    }
+}
+
+/* High contrast mode improvements */
+@media (forced-colors: active) {
+    .social-icons svg {
+        forced-color-adjust: auto;
+    }
+}

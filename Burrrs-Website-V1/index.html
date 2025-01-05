@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Burrrsprint</title>
+    
+    <!-- Meta tags for SEO and sharing -->
+    <meta name="description" content="Burrrsprint - Coming to Berachain Q5 2025">
+    <meta property="og:title" content="Burrrsprint">
+    <meta property="og:description" content="Burrrsprint - Coming to Berachain Q5 2025">
+    <meta property="og:image" content="assets/images/poster.jpg">
+    <meta property="og:url" content="https://burrrs.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/favicon.png">
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" as="video" href="assets/videos/background.webm" type="video/webm" media="(min-width: 769px)">
+    <link rel="preload" as="image" href="assets/images/poster.jpg">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <div class="video-container" role="presentation" aria-hidden="true">
+        <!-- Poster image for mobile -->
+        <img src="assets/images/poster.jpg" alt="Background" class="poster-image">
+        
+        <!-- Video for desktop -->
+        <video 
+            class="video-background loading" 
+            autoplay 
+            muted 
+            loop 
+            playsinline 
+            poster="assets/images/poster.jpg"
+            id="backgroundVideo">
+            <source src="assets/videos/background.webm" type="video/webm">
+            <source src="assets/videos/background.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="social-icons" role="navigation" aria-label="Social media links">
+        <a href="https://x.com/Burrrsprint" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           aria-label="X (formerly Twitter)">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+        </a>
+    </div>
+
+    <!-- Error handling and video loading script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('backgroundVideo');
+            const isMobile = window.matchMedia('(max-width: 768px)').matches;
+            
+            // Only handle video if not on mobile
+            if (!isMobile) {
+                // Handle video loading
+                video.addEventListener('loadeddata', function() {
+                    video.classList.remove('loading');
+                    video.classList.add('loaded');
+                });
+
+                // Handle video errors
+                video.addEventListener('error', function(e) {
+                    console.error('Error loading video:', e);
+                    video.style.display = 'none';
+                });
+            }
+        });
+    </script>
+
+    <!-- GoatCounter analytics -->
+    <script data-goatcounter="https://burrrs.goatcounter.com/count"
+            async src="//gc.zgo.at/count.js"></script>
+</body>
+</html>
