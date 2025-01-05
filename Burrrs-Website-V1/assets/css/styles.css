@@ -62,8 +62,11 @@ body {
 
 @media screen and (max-width: 768px) {
     #bgVideo {
-        width: 100vw;
-        height: 100vh;
+        width: 200vw; /* Zoomed out view */
+        height: 200vh;
+        max-width: none;
+        max-height: none;
+        transform: translate(-50%, -50%) scale(0.5); /* Scale down to show more */
     }
     
     .social-icon {
