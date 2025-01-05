@@ -41,12 +41,13 @@ body {
 /* Fallback image styles */
 .poster-image {
     display: none;
-    width: 100%;
+    width: 100vw;
     height: 100vh;
-    object-fit: cover;
+    object-fit: contain; /* Changed to contain for proper scaling */
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Social icons container */
@@ -99,6 +100,13 @@ body {
 
     .poster-image {
         display: block; /* Show poster image on mobile */
+        width: 95vw; /* Slightly smaller width */
+        height: 95vh; /* Slightly smaller height */
+        object-fit: contain;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
     }
 
     .social-icons {
